@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Shadows Into Light', cursive;
+    text-align: center;
+    background-color: rgb(244, 246, 216);
+    margin: 10px 200px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+h1 {
+    display: flex;
+    align-self: flex-start;
+    margin-left: 150px;
+    font-size: 3em;
+}
+
+#task-form {
+    display: flex;
+    justify-content: center;
+}
+
+#new-task {
+    margin: 20px 15px;
+    width: 35%;
+    line-height: 200%;
+    border: 2px solid rgb(133, 134, 135);
+}
+
+#add-task {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+    font-weight: 500;
+    width: 12%;
+    height: 32px;
+    margin-top: 19.5px;
+    background-color: rgb(80, 162, 244);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.trash-can {
+    color: rgb(238, 80, 80);
+    margin-top: 13px;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 100px;
+    padding: 8px 20px;
+    border: 1px solid rgb(186, 181, 181);
+}
+
+label {
+    margin-left: 30px;
+    font-size: 25px;
+}
+
+:checked + .cross-out {
+    text-decoration: line-through;
+}
