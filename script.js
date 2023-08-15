@@ -11,7 +11,6 @@ const list = document.querySelector("#tasks");
         response.push(data);
         response.forEach(task => {
             task.forEach((task)=>{
-                //console.log(task);
                 createDOM(task.description);
                 
             })
@@ -19,17 +18,16 @@ const list = document.querySelector("#tasks");
     }
 getTasks();
 
-//Post new task to the DOM -- GOOD
+//Post new task to the DOM
 const postNewTask = () => {
     form.addEventListener("submit", async () => {
         const newTask = taskInput.value;
-        //console.log(newTask);
         const post = await postTask(newTask);
     })
 }
 postNewTask();
 
-//Pair ID and task name from the response to the image tag and the check-box -- GOOD
+//Pair ID and task name from the response to the image tag and the check-box
  async function getIdAndName () {
         const response = await getData();
         const result = [];
@@ -40,11 +38,9 @@ postNewTask();
             result.push(id);
             nameArray.push(name);
         })
-        //console.log(result);
         const trashCan = document.querySelectorAll("i");
         const checkbox = document.querySelectorAll(".checkbox");
         const label = document.querySelectorAll(".my-label");
-        //console.log(trashCan);
         for (i=0; i<result.length; i++) {
             trashCan[i].id = result[i];
             checkbox[i].id = result[i];
@@ -56,7 +52,7 @@ postNewTask();
     }
  getIdAndName();
 
-//Create DOM elements -- GOOD
+//Create DOM elements
 const createDOM = (task) => {
     const toDoTask = document.createElement("div");
     toDoTask.classList.add("task");
@@ -81,11 +77,10 @@ const createDOM = (task) => {
     list.appendChild(toDoTask); 
     }
 
-//Delete task from API -- GOOD
+//Delete task from API
 const deleteTask = () => {
     document.getElementById("tasks").addEventListener("click", async (e) => {
         if (e.target && e.target.matches("i.trash-can")) {
-            //console.log(e.target.id);
             await deletPost(e.target.id);
             window.location.reload();
             }
@@ -100,12 +95,10 @@ const updateTask = () => {
         if (e.target && e.target.matches("input.checkbox")) {
             label.forEach((element) => {
                 if (e.target.checked === true && e.target.id == element.id) {
-                    //console.log(element.id);
                     element.classList.add("cross-out");
                     doneRequest(element.id);
                 }
                 else if (e.target.checked === false && e.target.id == element.id) {
-                    //console.log("I'm not checked!")
                     unDoneRequest(element.id);
                 }  
                 
